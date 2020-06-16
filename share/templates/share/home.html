@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'share/base.html' %}
+{% load static %}
+{% load socialaccount %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Home</title>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+</head>
+
+<body>
+
+{% block content %}
+
+
+<!--{% if user.is_authenticated %}-->
+<!--<p>Welcome {{ user.username }} !!!</p>-->
+<!--<p><a href="{% url 'account_logout' %}">Log out</a>-->
+<!--    {% else %}-->
+<!--<p><a href="{% url 'account_signup' %}">Sign Up</a></p>-->
+<!--<p><a href="{% url 'account_login' %}">Log In </a></p>-->
+<!--<p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>-->
+<!--{% endif %}-->
+
+
+{% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'share/base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+</head>
+<body>
+<h2>Signed In</h2>
+{% load socialaccount %}
+
+{% block content %}
+
+<div class="row justify-content-center my-3">
+
+    {% for i in images %}
+        <img src="{{ i.image.url }}" class="img-fluid mb-2" oncontextmenu="return false">
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+</body>
+
+</html>

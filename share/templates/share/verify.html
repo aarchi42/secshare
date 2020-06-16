@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Verification</title>
+
+    <!--     MDBootstrap -->
+    <!--     Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!--     Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+
+
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+</head>
+
+<body>
+
+{% load socialaccount %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<div class="row justify-content-center mt-3">
+    <div class="col-lg-4 sm-12">
+        <div class="card border-light mb-3 center sm-12 lg-4" style="width: 28rem; height: 30rem">
+            <div class="card-body text-center sm-12 px-lg-6 pt-0">
+                <div class="text-center mt-3 width=75" id="logo">
+                    <img src="{% static 'share/google_logo.png' %}" width="75" height="24"/>
+                </div>
+                <div id="info1" class=" my-3">
+                    <h4>Welcome</h4>
+                </div>
+                <div id="info2" class="my-3">
+                    <h5>{{ user.email }}</h5>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="md-form md-outline form-lg">
+                        <label for="verify">Re-enter your password</label>
+                        <input id="verify" name="verify" class="form-control form-control-lg" type="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Next</button>
+                </form>
+                <div id="bottom">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- MDBootstrap -->
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+
+</body>
+
+</html>

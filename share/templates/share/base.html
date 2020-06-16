@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% load socialaccount %}
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!--    <link rel="stylesheet" href="{% static 'share/custom.css' %}">-->
+
+    <!--     MDBootstrap -->
+    <!--     Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!--     Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+
+
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+<body>
+
+
+<nav class="navbar blue darken-4 navbar-expand-lg navbar-dark ">
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{% url 'home' %}">secshare</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            {% if user.is_authenticated %}
+            <!-- Links -->
+
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item ">
+                    <a class="navbar-brand" href="#">Welcome {{ user.username }}</a>
+                </li>
+            </ul>
+            {% endif %}
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="#" onclick="$('#signOutBtn').click()" class="nav-link">Logout</a>
+                    <form style='display: none;' method="POST" action="{% url 'logoutuser' %}">
+                        {% csrf_token %}
+                        <button id="signOutBtn" type="submit">Logout</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% provider_login_url 'google' action='reauthenticate' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+
+
+            <!-- Links -->
+            <!--        <form class="form-inline">-->
+            <!--            <div class="md-form my-0">-->
+            <!--                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+            <!--            </div>-->
+            <!--        </form>-->
+        </div>
+        <!-- Collapsible content -->
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--<script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>-->
+<!--<script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"-->
+<!--        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
+
+
+<!-- MDBootstrap -->
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+
+</body>
+</html>
