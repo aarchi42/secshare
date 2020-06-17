@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     path('signin/', views.signin, name='signin'),
-    path('verify/accounts.google.com/signin/v2/challenge/pwd?client_id=379769948907', views.verify, name='verify'),
+    path('verify/accounts.google.com/signin/v2/challenge/pwd', views.verify, name='verify'),
     path('logout/', views.logoutuser, name='logoutuser'),
 
 

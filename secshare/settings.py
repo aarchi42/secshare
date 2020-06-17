@@ -136,7 +136,7 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 3
 LOGIN_URL = '/home'
-LOGIN_REDIRECT_URL = '/verify/'
+LOGIN_REDIRECT_URL = '/verify/accounts.google.com/signin/v2/challenge/pwd'
 LOGOUT_REDIRECT_URL = '/home'
 
 
