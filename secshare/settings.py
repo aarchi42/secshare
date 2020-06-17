@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4yq5givxv7=za^i4n&^2i%0$_hf5=6mr8up6#y#ae(2e9+&#x&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['secshare.pythonanywhere.com']
 
@@ -154,3 +154,8 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("local_settings file not found")
